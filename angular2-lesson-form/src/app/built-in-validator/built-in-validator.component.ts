@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./built-in-validator.component.css']
 })
 export class BuiltInValidatorComponent implements OnInit {
-  user = { id: '', name: '' };
+  user = { id: 'x', name: 'i', email: 'z' };
+
   constructor() { }
 
   ngOnInit() {

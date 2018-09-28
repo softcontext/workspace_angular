@@ -28,12 +28,17 @@ export class LoginComponent implements OnInit {
   login() {
     this.errorMessage = '';
     alert(JSON.stringify(this.user));
+
     this.loginService.auth(this.user)
       .then(data => {
         console.log('--------2-------');
         console.log(this.returnUrl);
         console.log(this.router);
-        localStorage.setItem('currentUser', JSON.stringify(this.user));
+        // 사용자가 존재하므로 로그인 처리가 됬음을
+        // 브라우저가 지원하는 저장소에 기록합니다.
+        sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+        // 사용자가 원래 가고자 했던 url 정보를 사용하여
+        // 화면을 전환시킵니다.
         this.router.navigate([this.returnUrl]);
       })
       .catch(error => {

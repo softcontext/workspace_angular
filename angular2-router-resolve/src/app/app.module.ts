@@ -16,7 +16,10 @@ import { ContactService } from './service/contact.service';
 import { XxxService } from './service/xxx.service';
 import { ContactResolveGuardService } from './guard/contact-resolve-guard.service';
 
-export function infoServiceUseValue(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+export function infoServiceUseValue(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot){
+
   // return new ContactService().getContact(route.params['id']);
   return new XxxService().getContact(route.params['id']);
   // return {
@@ -44,8 +47,10 @@ export function infoServiceUseValue(route: ActivatedRouteSnapshot, state: Router
     ContactDataComponent
   ],
   providers: [
-    ContactService,
-    XxxService,
+    ContactService, XxxService,
+    // 서비스 클래스를 그냥 등록해도 되고,
+    // {provide: '서비스제공이름', useValue: 함수명} 처럼 설정해서
+    // infoService 이름으로 infoServiceUseValue 함수를 제공할 수 있다.
     {
       provide: 'infoService',
       useValue: infoServiceUseValue

@@ -29,10 +29,19 @@ import { CanDeactivateGuardService } from './guard/can-deactivate-guard.service'
     HttpModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/child1', pathMatch: 'full' },
-      { path: 'child1', component: Child1Component, canDeactivate: [CanDeactivateGuardService] },
-      { path: 'child2/:id', component: Child2Component, canActivate: [CanActivateGuardService] },
+
+      { path: 'child1', component: Child1Component,
+        canDeactivate: [CanDeactivateGuardService] },
+
+      // URL매칭 ==> canActivate 가드 ==> resolve 가드 ==> 컴포넌트 기동
+      { path: 'child2/:id', component: Child2Component,
+        canActivate: [CanActivateGuardService] },
+
       { path: 'child3', component: Child3Component },
-      { path: 'lazy-load/lazy-load', loadChildren: 'app/lazy-load/lazy-load.module#LazyLoadModule', canLoad: [CanLoadGuardService] },
+
+      { path: 'lazy-load/lazy-load', loadChildren: 'app/lazy-load/lazy-load.module#LazyLoadModule',
+        canLoad: [CanLoadGuardService] },
+
       // LazyLoadModule ===> { path: 'lazy-load', component: LazyLoadComponent },
       { path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: '/not-found' },

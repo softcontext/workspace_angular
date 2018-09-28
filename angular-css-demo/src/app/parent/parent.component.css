@@ -7,3 +7,21 @@
 /deep/ p {
   font-size: 30px;
 }
+
+/*
+컴포넌트의 CSS 설정은 해당 컴포넌트의 엘리먼트들에만 적용됩니다.
+그러기 위해서 _nghost-* 라는 속성을 컴포넌트 엘리먼트에 추가하고,
+CSS 설정정보 또한 그에 따라 수정됩니다.
+
+<style>
+[_nghost-c0] {
+  display: block;
+  padding: 10px;
+  background-color: yellow;
+}
+
+p {
+  font-size: 30px;
+}
+</style>
+ */

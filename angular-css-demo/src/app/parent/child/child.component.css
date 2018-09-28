@@ -4,6 +4,11 @@
   background-color: lightgreen;
 }
 
+/*
+  <app-child></app-child> 이 경우, 아래 디자인은 적용하지 않는다.
+
+  <app-child class="xxx"></app-child> 이 경우, 아래 디자인을 적용한다.
+ */
 :host-context(.xxx) p {
   color: red;
 }

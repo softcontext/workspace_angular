@@ -10,7 +10,7 @@ export class FormGroupComponent implements OnInit {
 
   // 평가 로직을 담고 있는 객체
   formX = new FormGroup({
-    mandatory: new FormControl('', Validators.required),
+    mandatory: new FormControl('초기값', Validators.required),
     upperCase: new FormControl('', Validators.compose([
       Validators.required, Validators.pattern('[A-Z]{3}')
     ])),

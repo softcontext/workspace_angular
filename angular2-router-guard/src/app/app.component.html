@@ -13,7 +13,12 @@
 
     <fieldset>
       <legend>CanDeactivate 가드</legend>
-      <a routerLink="/child1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">/child1</a>
+      <!--
+        http://localhost:4200/child1 <== 적용
+        http://localhost:4200/child1/x <== 미적용
+       -->
+      <a routerLink="/child1" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">/child1</a>
     </fieldset>
 
     <fieldset>
@@ -92,6 +97,6 @@
   </div>
 </div>
 <hr />
-<div>
+<div class="outlet">
   <router-outlet></router-outlet>
 </div>

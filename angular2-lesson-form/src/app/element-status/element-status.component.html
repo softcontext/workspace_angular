@@ -2,9 +2,19 @@
 <p>엘리먼트의 검증 상태 확인, 상태 키워드를 이용한 CSS 설정</p>
 
 <form class="submitted">
+
+<!--
+<input _ngcontent-bwr-3="" maxlength="10" minlength="3" name="id"
+  pattern="[a-z][a-z0-9]{1,9}" placeholder="input your id" required=""
+  type="text" ng-reflect-minlength="3" ng-reflect-maxlength="10"
+  ng-reflect-pattern="[a-z][a-z0-9]{1,9}" ng-reflect-name="id"
+  class="ng-untouched ng-pristine ng-invalid">
+ -->
+
   <input type="text" placeholder="input your id" name="id"
       [(ngModel)]="user.id" #id="ngModel"
       pattern="[a-z][a-z0-9]{1,9}" minlength="3" maxlength="10" required>
+  <p *ngIf="id.touched && id.errors.required">필수입력 항목입니다.</p>
 </form>
 
 <hr />

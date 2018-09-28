@@ -8,6 +8,11 @@
 #userId="ngModel" 설정은 해당 엘리먼트가 양방향 동기화 대상(ngModel)이므로
 pattern="^[a-z][a-z0-9]{1,9}" required 등에 평가기준을 적용하고 평가결과를
 userId 키로 관리하도록 지시한다.
+
+required : 필수항목, 빈문자열은 허용하지 않는다. HTML 속성을 그대로 차용.
+pattern : 정규표현식으로 데이터를 평가한다.
+^[a-z] : 알파벳 소문자로 시작해야 한다.
+[a-z0-9]{1,9}  : 알파벳 소문자 또는 숫자가 가능하고 1~9 길이여야 한다.
  -->
 <p>
   <label class="w3-label w3-text-blue">ID</label><label>{{' : '+userId.valid}}</label>
@@ -20,6 +25,14 @@ userId 키로 관리하도록 지시한다.
   <input class="w3-input w3-border" type="text" name="name"
     [(ngModel)]="user.name" #userName="ngModel"
     required minlength="3" maxlength="10">
+</p>
+<p>
+  <label class="w3-label w3-text-blue" for="">Email {{userEmail.valid}}</label>
+  <!-- [value]="user.email" #userEmail (input)="user.email=userEmail.value" -->
+  <input class="w3-input w3-border" type="text" name=""
+    [(ngModel)]="user.email"
+    required minlength="4" maxlength="30"
+    #userEmail="ngModel">
 </p>
 
 <div class="this-is-valid" *ngIf="userId.valid && userName.valid">

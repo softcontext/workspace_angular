@@ -14,7 +14,8 @@ export class FormReferenceVariableComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(f) {
+  submitForm(f: NgForm){
+    // 원한다면 순수 자바스크립트 코드를 사용할 수 있습니다.
     var name = (<HTMLInputElement>document.querySelector('#name')).value;
     // var name = (<HTMLInputElement>document.getElementById('name')).value;
     console.log('name = ', name);
@@ -24,6 +25,7 @@ export class FormReferenceVariableComponent implements OnInit {
     }
 
     alert(JSON.stringify(f.value));
+    console.log(this.user);
 
     if(f.value.name){
       delete f.value.name;

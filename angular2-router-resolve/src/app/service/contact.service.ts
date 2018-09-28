@@ -13,6 +13,7 @@ export class ContactService {
     let myId: number = +id; // casting
     // console.log('typeof myId === '+(typeof myId));
 
+    // of 함수에 전달한 객체를 3초 후에 요청자에게 건네줍니다.
     return Observable.of({
       id: myId,
       name: 'Gildong Hong',

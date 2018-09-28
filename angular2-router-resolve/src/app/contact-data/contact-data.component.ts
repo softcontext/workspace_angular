@@ -13,6 +13,10 @@ export class ContactDataComponent implements OnInit {
 
   ngOnInit() {
     console.log("this.route.snapshot.data = " + JSON.stringify(this.route.snapshot.data));
+
+    // { path: 'data/:id', component: ContactDataComponent,
+    //   resolve: { contact: ContactResolveGuardService }
+    // },
     this.contact = this.route.snapshot.data['contact'];
   }
 

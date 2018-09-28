@@ -2,3 +2,8 @@
 :host h4 {
     color: red;
 }
+
+.outlet {
+  padding: 20px;
+  border: 2px solid black;
+}
