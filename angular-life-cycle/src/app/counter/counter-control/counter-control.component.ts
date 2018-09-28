@@ -13,6 +13,7 @@ export class CounterControlComponent implements OnInit {
   ngOnInit() {
   }
 
+  // 이벤트를 청취해서 서비스에게 이벤트 종류를 알려줍니다.
   increment() {
     // alert('CounterDisplayComponent 의 count 값을 +1 한다.');
     this.counterBridgeService.incremnet();

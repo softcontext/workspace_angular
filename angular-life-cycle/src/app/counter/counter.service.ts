@@ -11,6 +11,7 @@ export class CounterBridgeService {
   constructor() { }
 
   incremnet() {
+    // 이벤트를 수신받으면 적절한 데이터를 구독자의 콜백함수에게 전달합니다.
     this.subject.next({ type: 'incremnet' });
   }
 

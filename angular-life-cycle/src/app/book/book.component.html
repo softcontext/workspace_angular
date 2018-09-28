@@ -3,7 +3,7 @@
 <div *ngFor="let book of books">
   <app-book-image [path]="book.img"
     [title]="book.name" [width]="80" [height]="120"
-    (selectBook)="onSelectBook(book.name)"></app-book-image>
+    (selectBook)="onSelectBook($event)"></app-book-image>
 </div>
 <br>
 

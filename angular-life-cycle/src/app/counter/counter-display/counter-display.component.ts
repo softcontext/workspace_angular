@@ -12,7 +12,9 @@ export class CounterDisplayComponent implements OnInit {
   constructor(private counterBridgeService: CounterBridgeService) { }
 
   ngOnInit() {
+    // 구독자가 먼저 구독 신청을 합니다.
     this.counterBridgeService.getObservable().subscribe(
+      // { type: 'incremnet' }
       message => {
         if (message.type === 'incremnet') {
           this.count++;

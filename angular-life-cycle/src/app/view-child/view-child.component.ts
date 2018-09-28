@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { AfterViewInit, Directive, Input, ViewChild } from '@angular/core';
 
 @Directive({
@@ -10,11 +10,28 @@ export class Item {
 
 @Component({
   selector: 'item-component',
-  template: `<button>알림창</button>`
+  template: `
+    <button>알림창</button>
+    <input type="text" value="111" #target>
+    <button (click)="show($event, target.value)">Show</button>
+    <button (click)="show2($event)">Show 2</button>
+  `
 })
 export class ItemComponent {
   display(str: string) {
     alert('ItemComponent # display() : str = ' + str);
+  }
+  show(e, value){
+    alert('hi ' + value);
+    e.stopPropagation();
+  }
+
+  @ViewChild('target') x: ElementRef;
+
+  show2(e){
+    console.log(this.x);
+    alert('hello ' + this.x.nativeElement.value);
+    e.stopPropagation();
   }
 }
 
